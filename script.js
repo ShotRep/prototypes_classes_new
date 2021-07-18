@@ -72,32 +72,32 @@ Confusion regarding .prototype and _proto_ : They both are very similar but .pro
 //links(sets constructor of) THIS Object to another Object
 //passes the newly created object from step1 as the THIS context
 //returns THIS if the function doesn't return its own object
-function Color(r, g, b) {
-  this.r = r
-  this.g = g
-  this.b = b
-  console.log(this) //refers to the global object or window.
-}
+// function Color(r, g, b) {
+//   this.r = r
+//   this.g = g
+//   this.b = b
+//   console.log(this) //refers to the global object or window.
+// }
 
-Color.prototype.rgb = function () {
-  const { r, g, b } = this
-  return `rgb(${r},${g},${b})`
-}
+// Color.prototype.rgb = function () {
+//   const { r, g, b } = this
+//   return `rgb(${r},${g},${b})`
+// }
 
-Color.prototype.hex = function () {
-  const { r, g, b } = this
-  return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1)
-}
+// Color.prototype.hex = function () {
+//   const { r, g, b } = this
+//   return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1)
+// }
 
-let color1 = new Color(255, 125, 0)
-console.log(color1.rgb())
-console.log(color1.hex())
+// let color1 = new Color(255, 125, 0)
+// console.log(color1.rgb())
+// console.log(color1.hex())
 
-let color2 = new Color(10, 100, 225)
-console.log(color2.rgb())
-console.log(color2.hex())
+// let color2 = new Color(10, 100, 225)
+// console.log(color2.rgb())
+// console.log(color2.hex())
 
-console.log(color1.hex === color2.hex) // true  -  shows us there is 1 copy of the methods, they are pointing to the same thing the _proto_.
+// console.log(color1.hex === color2.hex) // true  -  shows us there is 1 copy of the methods, they are pointing to the same thing the _proto_.
 
 /*                 Classes      Syntactical Sugar for constructor functions           */
 
@@ -109,5 +109,33 @@ console.log(color1.hex === color2.hex) // true  -  shows us there is 1 copy of t
 
 //An important difference between function declarations and class declarations is that function declarations are hoisted and class declarations are not. You first need to declare your class and then access it, otherwise your code will throw a ReferenceError:
 
+class Color {
+  constructor(r, g, b, name) {
+    this.r = r
+    this.g = g
+    this.b = b
+    this.name = name
+    //logging 
+    // console.log('Inside Constructor')
+    // console.log(r,g,b)
+  }
 
+  rgb() {
+    const { r, g, b } = this  //destructure
+    return `rgb(${r}, ${g}, ${b})`
+  }
+
+  hex() {
+    const {r, g, b} = this     //destructure
+    return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1)
+  }
+  // greet() {
+  //   return `Hello from ${this.name}!`
+  // }  
+}
+const color1 = new Color(225, 0, 0, 'red')
+console.log(color1)
+console.log(color1.rgb())
+console.log(color1.hex())
+// console.log(color1.greet())
 
