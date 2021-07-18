@@ -1,4 +1,4 @@
-<h1 align="center">FORM EVENTS</h1>
+<h1 align="center">Prototypes - Classes - New Operator</h1>
 
 <h3 align="center">The Modern Javascript Bootcamp Course (2021)</h3>    
 
