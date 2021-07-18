@@ -121,8 +121,8 @@ class Color {
   }
 
   rgb() {
-    const { r, g, b } = this  //destructure
-    return `rgb(${r}, ${g}, ${b})`
+//    const { r, g, b } =     this  //not destructured
+    return `rgb(${this.r}, ${this.g}, ${this.b})`
   }
 
   hex() {
@@ -138,4 +138,8 @@ console.log(color1)
 console.log(color1.rgb())
 console.log(color1.hex())
 // console.log(color1.greet())
+
+/*                 MOAR PRACKY WITH CLASSES                  */
+
+
 
