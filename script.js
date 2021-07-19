@@ -140,6 +140,57 @@ console.log(color1.hex())
 // console.log(color1.greet())
 
 /*                 MOAR PRACKY WITH CLASSES                  */
+//it was lacking so.. NXT!
 
+/*    Extends, Super, and Subclasses    */
+//SubClassing, essentially inheritance - This is a way to share functionality between classes.
 
+// class Cat {
+//   constructor(name, age) {
+//     this.name = name
+//     this.age = age
+//   }
+//   eat() {
+//     return `${this.name} is eating!`
+//   }
+//   meow() {
+//     return `${this.name} meows when hungry`
+//   }
+// }
+
+// class Dog {
+//   constructor(name, age) {
+//     this.name = name
+//     this.age = age 
+//   }
+//   eat() {
+//     return `${this.name} is eating!`
+//   }
+//   barks() {
+//     return `${this.name} barks when protecting`
+//   }
+// }
+
+//EXTENDS//
+class Pet {
+  constructor(name, age) {
+    this.name
+    this.age
+  }
+  eat() {
+    return `${this.name} is eating!`
+  }
+}
+
+class Cat extends Pet{
+   meow() {
+    return `${this.name} meows when hungry`
+  }
+}
+
+class Dog extends Pet{
+  barks() {
+    return `${this.name} barks when protecting`
+  }
+}
 
