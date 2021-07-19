@@ -33,7 +33,7 @@ Confusion regarding .prototype and _proto_ : They both are very similar but .pro
 // }
 
 // console.log([3, 4, 5].pop())
-// we have replaced .pop with a disgruntled method and now we just get backtalk. 
+// we have replaced .pop with a disgruntled method and now we just get backtalk.
 
 /*                   Constructor Functions - an intro into OOP       */
 
@@ -115,25 +115,25 @@ class Color {
     this.g = g
     this.b = b
     this.name = name
-    //logging 
+    //logging
     // console.log('Inside Constructor')
     // console.log(r,g,b)
   }
 
   rgb() {
-//    const { r, g, b } =     this  //not destructured
+    //    const { r, g, b } =     this  //not destructured
     return `rgb(${this.r}, ${this.g}, ${this.b})`
   }
 
   hex() {
-    const {r, g, b} = this     //destructure
+    const {r, g, b} = this //destructure
     return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1)
   }
   // greet() {
   //   return `Hello from ${this.name}!`
-  // }  
+  // }
 }
-const color1 = new Color(225, 0, 0, 'red')
+const color1 = new Color(225, 0, 0, "red")
 console.log(color1)
 console.log(color1.rgb())
 console.log(color1.hex())
@@ -144,6 +144,9 @@ console.log(color1.hex())
 
 /*    Extends, Super, and Subclasses    */
 //SubClassing, essentially inheritance - This is a way to share functionality between classes.
+
+//EXTENDS: The extends keyword is used in class declarations or class expressions to create a class that is a child of another class.
+//SUPER: The super keyword is used to access and call functions on an object's parent.
 
 // class Cat {
 //   constructor(name, age) {
@@ -161,7 +164,7 @@ console.log(color1.hex())
 // class Dog {
 //   constructor(name, age) {
 //     this.name = name
-//     this.age = age 
+//     this.age = age
 //   }
 //   eat() {
 //     return `${this.name} is eating!`
@@ -171,26 +174,59 @@ console.log(color1.hex())
 //   }
 // }
 
-//EXTENDS//
+// //EXTENDS//  Same example as above but with extends added.
+// class Pet {
+//   constructor(name, age) {
+//     this.name
+//     this.age
+//   }
+//   eat() {
+//     return `${this.name} is eating!`
+//   }
+// }
+// //extends: extends the constructor from Pet
+// class Cat extends Pet{
+//    meow() {
+//     return `${this.name} meows when hungry`
+//   }
+// }
+// //extends: extends the constructor from Pet
+// class Dog extends Pet{
+//   barks() {
+//     return `${this.name} barks when protecting`
+//   }
+// }
+
+//SUPER//  Same example as above but with super added.
 class Pet {
   constructor(name, age) {
-    this.name
-    this.age
+    console.log("In Pet Constructor")
+    this.name = name
+    this.age = age
   }
   eat() {
     return `${this.name} is eating!`
   }
 }
-
-class Cat extends Pet{
-   meow() {
+//EXTENDS: The extends keyword is used in class declarations or class expressions to create a class that is a child of another class.
+//SUPER: The super keyword is used to access and call functions on an object's parent.
+class Cat extends Pet {
+  constructor(name, age, livesLeft = 9) {
+    console.log("In Cat Constructor")
+    super(name, age)
+    this.livesLeft = livesLeft
+  }
+  meow() {
     return `${this.name} meows when hungry`
   }
 }
-
-class Dog extends Pet{
+//EXTENDS: extends the constructor from Pet
+class Dog extends Pet {
   barks() {
     return `${this.name} barks when protecting`
   }
 }
 
+//console
+const nermal = new Cat("Nermal", 5)
+console.log(nermal)
